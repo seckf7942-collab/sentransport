@@ -16,6 +16,7 @@ function ListeLignes({ lignes }) {
           depart={ligne.depart}
           arrivee={ligne.arrivee}
           arrets={ligne.arrets}
+          couleur={ligne.couleur}
         />
       ))}
     </div>
