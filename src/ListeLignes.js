@@ -1,4 +1,3 @@
-import React from 'react';
 import LigneBus from './LigneBus';
 import './ListeLignes.css';
 
