@@ -10,6 +10,7 @@ import StatReseau from './StatReseau';
 function App() {
   const [recherche, setRecherche] = useState("");
   const [ligneSelectionnee, setLigneSelectionnee] = useState(null);
+  const [nbRecherches, setNbRecherches] = useState(0);
 
   const lignes = [
     { id: 1, numero: "1", depart: "Parcelles Assainies", arrivee: "Plateau", arrets: 14, couleur: "#0a6e31",
@@ -53,10 +54,27 @@ function App() {
       <Header />
       <main className="contenu">
         <StatReseau lignes={lignes} />
-        <Recherche valeur={recherche} onChange={setRecherche} />
-        <p className="resultat-recherche">
-          {lignesFiltrees.length} ligne{lignesFiltrees.length > 1 ? 's' : ''} trouvée{lignesFiltrees.length > 1 ? 's' : ''}
-        </p>
+        {nbRecherches > 0 && (
+          <p className="compteur-recherche">
+            Vous avez effectué {nbRecherches} recherche{nbRecherches > 1 ? 's' : ''}
+          </p>
+        )}
+        <Recherche
+          valeur={recherche}
+          onChange={(valeur) => {
+            setRecherche(valeur);
+            setNbRecherches(nb => nb + 1);
+          }}
+        />
+        {lignesFiltrees.length === 0 ? (
+          <div className="aucun-resultat">
+            <p>Aucune ligne trouvée pour "<strong>{recherche}</strong>"</p>
+          </div>
+        ) : (
+          <p className="resultat-recherche">
+            {lignesFiltrees.length} ligne{lignesFiltrees.length > 1 ? 's' : ''} trouvée{lignesFiltrees.length > 1 ? 's' : ''}
+          </p>
+        )}
         {lignesFiltrees.map(ligne => (
           <LigneBus
             key={ligne.id}
