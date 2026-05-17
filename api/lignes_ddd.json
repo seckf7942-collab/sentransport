@@ -41,4 +41,23 @@
     "listeArrets": ["Yoff Village", "Aeroport LSS", "Parcelles U17",
       "Grand Yoff", "HLM", "Sandaga"]
   }
+  ,
+{
+  "id": 7,
+  "numero": "26",
+  "depart": "Liberté 6",
+  "arrivee": "Yoff",
+  "arrets": 10,
+  "listeArrets": ["Liberté 5", "Patte d'Oie", "Aéroport Yoff", "Yoff Village", "Yoff"],
+  "couleur": "#e67e22"
+},
+{
+  "id": 8,
+  "numero": "36",
+  "depart": "Hann",
+  "arrivee": "Almadies",
+  "arrets": 8,
+  "listeArrets": ["Hann Maristes", "Fann", "Corniche", "Almadies"],
+  "couleur": "#8e44ad"
+}
 ]
